@@ -4,10 +4,10 @@ spring:
     username: root
     password: admin
   jpa:
-    generate-ddl: true
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
+
   security:
     user:
       name: user
