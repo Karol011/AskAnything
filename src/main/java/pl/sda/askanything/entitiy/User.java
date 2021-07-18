@@ -1,16 +1,13 @@
 package pl.sda.askanything.entitiy;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -27,6 +24,8 @@ public class User {
 
     private String password;
 
-    @ManyToOne()
-    private CommentToResponse comment;
+    @OneToOne
+    @JoinColumn(name = "responder")
+    private Response response;
+
 }

@@ -1,9 +1,6 @@
 package pl.sda.askanything.entitiy;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Table(name = "comment_to_response")
 public class CommentToResponse {
 
@@ -23,11 +20,10 @@ public class CommentToResponse {
 
     private String text;
 
-    @OneToMany(mappedBy = "user")
-    @Column(name = "user_id")
-    private List<User> commentators;
+    @ManyToOne
+    @JoinColumn(name = "commentator_id")
+    private User commentator;
 
     @OneToMany(mappedBy = "response")
-    @Column(name = "response_id")
     private List<Response> responses;
 }
