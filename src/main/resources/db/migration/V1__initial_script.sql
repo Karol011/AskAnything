@@ -1,4 +1,4 @@
-CREATE TABLE user
+CREATE TABLE  user
 (
     user_id  BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name     VARCHAR(30)                       NOT NULL,
@@ -12,17 +12,15 @@ CREATE TABLE category
     name            VARCHAR(60)                       NOT NULL,
     parent_category VARCHAR(30)
 );
-
 CREATE TABLE question
-(
-    question_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    text        VARCHAR(500)                      NOT NULL,
-    date        DATE,
-    user_id     BIGINT,
-    FOREIGN KEY (user_id)
-        REFERENCES user (user_id)
-);
-
+  (
+      question_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+      text        VARCHAR(500)                      NOT NULL,
+      date        DATE,
+      user_id     BIGINT,
+      FOREIGN KEY (user_id)
+          REFERENCES user (user_id)
+  );
 CREATE TABLE response
 (
     response_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -33,6 +31,7 @@ CREATE TABLE response
     FOREIGN KEY (question_id)
         REFERENCES question (question_id)
 );
+
 
 CREATE TABLE comment_to_response
 (
