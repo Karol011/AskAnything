@@ -15,8 +15,7 @@ public class CommentToResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull
-    @Column(name = "comment_to_response_id")
-    private Long commentId;
+    private Long id;
 
     private String text;
 

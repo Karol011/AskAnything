@@ -14,8 +14,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "question_id")
-    private Long questionId;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "user_id")
