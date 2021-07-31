@@ -1,4 +1,4 @@
-package pl.sda.askanything.entitiy;
+package pl.sda.askanything.entity;
 
 import lombok.*;
 
