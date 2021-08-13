@@ -17,14 +17,15 @@ import org.springframework.stereotype.Component;
 import pl.sda.askanything.service.MyUserDetailsService;
 
 @Configuration
-@Component
-@NoArgsConstructor
-@AllArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private MyUserDetailsService myUserDetailsService;
+    private final MyUserDetailsService myUserDetailsService;
+
+    public SecurityConfig(MyUserDetailsService myUserDetailsService) {
+        this.myUserDetailsService = myUserDetailsService;
+    }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {

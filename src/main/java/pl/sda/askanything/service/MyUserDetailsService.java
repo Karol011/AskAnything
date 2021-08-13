@@ -9,12 +9,14 @@ import pl.sda.askanything.entity.User;
 import pl.sda.askanything.exception.UserNotFoundException;
 import pl.sda.askanything.utility.MyUserDetails;
 
-@Service("MyUserDetailsService")
-@NoArgsConstructor
-@AllArgsConstructor
+@Service
 public class MyUserDetailsService implements UserDetailsService {
 
-    private UserService userService;
+    private final UserService userService;
+
+    public MyUserDetailsService(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public MyUserDetails loadUserByUsername(String username) {
