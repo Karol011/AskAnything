@@ -29,10 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                //dla wszystkiego po users/ pozwol KAZDEMU na jakiekolwiek zmiany
                 .antMatchers("/users/**").permitAll()
-                //nadpisuje wczesniejsze pozwolenie i wymaga zalogowania przy metodzie DELETE
-               // .antMatchers(HttpMethod.DELETE, "/users/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
