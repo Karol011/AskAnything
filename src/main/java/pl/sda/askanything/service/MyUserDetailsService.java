@@ -1,9 +1,6 @@
 package pl.sda.askanything.service;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.sda.askanything.entity.User;
 import pl.sda.askanything.exception.UserNotFoundException;
@@ -22,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public MyUserDetails loadUserByUsername(String username) {
         User user = userService.findByUsername(username);
         if (user == null) {
-            throw new UserNotFoundException(username);
+            throw new UserNotFoundException("Username: " + username + " not found");
         }
         return new MyUserDetails(user);
     }
