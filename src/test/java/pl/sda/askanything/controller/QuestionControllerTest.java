@@ -27,6 +27,7 @@ import pl.sda.askanything.entity.Question;
 import pl.sda.askanything.entity.User;
 import pl.sda.askanything.service.MyUserDetailsService;
 import pl.sda.askanything.service.QuestionService;
+import pl.sda.askanything.utility.QuestionMapper;
 
 import java.io.IOException;
 
@@ -48,6 +49,9 @@ class QuestionControllerTest {
 
     @MockBean
     private QuestionService questionService;
+
+    @MockBean
+    private QuestionMapper questionMapper;
 
     @MockBean
     private MyUserDetailsService myUserDetailsService;
