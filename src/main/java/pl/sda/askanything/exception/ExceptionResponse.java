@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
