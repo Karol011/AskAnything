@@ -23,4 +23,8 @@ public class QuestionDto {
     private String text;
 
     private LocalDate date;
+
+    public QuestionDto(long questionId, User user, String text) {
+
+    }
 }
