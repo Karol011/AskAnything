@@ -9,13 +9,17 @@ import pl.sda.askanything.utility.MyUserDetails;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-    private UserService userService;
+    private final UserService userService;
+
+    public MyUserDetailsService(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public MyUserDetails loadUserByUsername(String username) {
         User user = userService.findByUsername(username);
         if (user == null) {
-            throw new UserNotFoundException(username);
+            throw new UserNotFoundException("Username: " + username + " not found");
         }
         return new MyUserDetails(user);
     }

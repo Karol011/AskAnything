@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 public class Response {
 
     @Id

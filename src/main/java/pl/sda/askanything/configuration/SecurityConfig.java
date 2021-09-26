@@ -2,6 +2,8 @@ package pl.sda.askanything.configuration;
 
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,23 +14,25 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import pl.sda.askanything.service.MyUserDetailsService;
 
 @Configuration
-@AllArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private MyUserDetailsService myUserDetailsService;
 
+    @Autowired
+    public SecurityConfig(MyUserDetailsService myUserDetailsService) {
+        this.myUserDetailsService = myUserDetailsService;
+    }
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                //dla wszystkiego po users/ pozwol KAZDEMU na jakiekolwiek zmiany
                 .antMatchers("/users/**").permitAll()
-                //nadpisuje wczesniejsze pozwolenie i wymaga zalogowania przy metodzie DELETE
-               // .antMatchers(HttpMethod.DELETE, "/users/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
