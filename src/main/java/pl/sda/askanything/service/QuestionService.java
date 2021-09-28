@@ -15,7 +15,7 @@ public class QuestionService {
     public Question save(Question question) {
         if (question == null) {
             throw new EmptyQuestionException("Question cannot be null");
-        } else if (question.getText().equals("")) {
+        } else if ((question.getText().equals(null)) ||question.getText().equals("")) {
             throw new EmptyQuestionException("You cannot add empty question");
         } else
             return questionRepository.save(question);
