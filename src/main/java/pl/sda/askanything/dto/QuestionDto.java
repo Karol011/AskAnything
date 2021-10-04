@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import pl.sda.askanything.entity.Response;
 import pl.sda.askanything.entity.User;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +24,7 @@ public class QuestionDto {
     private List<Response> responses;
 
     @NotBlank(message = "Question text can not be empty")
+    @Min(value = 2, message = "Miniumim lenght for question is 2")
     @JsonProperty("text")
     private String text;
 
