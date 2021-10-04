@@ -1,6 +1,8 @@
 package pl.sda.askanything.service;
 
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import pl.sda.askanything.entity.Question;
 import pl.sda.askanything.exception.EmptyQuestionException;
@@ -15,9 +17,11 @@ public class QuestionService {
     public Question save(Question question) {
         if (question == null) {
             throw new EmptyQuestionException("Question cannot be null");
-        } else if ((question.getText().equals(null)) ||question.getText().equals("")) {
+        }else if (StringUtils.isEmpty(question.getText()) || question.getText().equals("")) {
             throw new EmptyQuestionException("You cannot add empty question");
         } else
             return questionRepository.save(question);
     }
+    //apache commons
+    //javax do walidacji
 }

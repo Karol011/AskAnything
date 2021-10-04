@@ -23,6 +23,9 @@ public class QuestionController {
     @PostMapping()
     public ResponseEntity<Question> addQuestion(@RequestBody QuestionDto questionDto) {
 
-            return new ResponseEntity<>(questionService.save(questionMapper.toEntity(questionDto)), HttpStatus.CREATED);
+            return new ResponseEntity<>(
+                    questionService.save(
+                            questionMapper.toEntity(questionDto)),
+                    HttpStatus.CREATED);
     }
 }
