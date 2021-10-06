@@ -10,11 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-public class Question {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Question extends AbstractEntity {
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -25,13 +21,10 @@ public class Question {
 
     private String text;
 
-    private LocalDate date;
-
-    public Question(Long id, User asker, List<Response> responses, String text) {
-        this.id = id;
+    public Question(User asker, List<Response> responses, String text) {
+        super();
         this.asker = asker;
         this.responses = responses;
         this.text = text;
-        this.date = LocalDate.now();
     }
 }

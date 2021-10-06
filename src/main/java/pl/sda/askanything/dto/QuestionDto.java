@@ -34,7 +34,7 @@ public class QuestionDto {
     @JsonProperty("text")
     private String text;
 
-    private LocalDate date;
+    private LocalDate creationDate;
 
     public QuestionDto(long questionId, User user, String text) {
 

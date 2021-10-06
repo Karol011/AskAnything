@@ -47,7 +47,7 @@ class QuestionControllerTest {
         String url = "/questions";
         QuestionDto questionDto = new QuestionDto(
                 1L,
-                new User(1L, "Karol", "Karolskyy", "superSecretPassword", null),
+                new User( "Karol", "Karolskyy", "superSecretPassword", null),
                 "some random question");
         mvc.perform(MockMvcRequestBuilders.post(url)
                 .content(objectMapper.writeValueAsString(questionDto))
