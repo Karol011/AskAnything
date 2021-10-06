@@ -15,3 +15,5 @@ spring:
   sql:
     init:
       enabled: true
+  profiles:
+    active: dev
