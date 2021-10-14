@@ -12,8 +12,5 @@ spring:
     user:
       name: user
       password: user
-  sql:
-    init:
-      enabled: true
   profiles:
     active: dev
