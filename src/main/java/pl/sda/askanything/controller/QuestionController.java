@@ -28,7 +28,8 @@ public class QuestionController {
 
             return new ResponseEntity<>(
                     questionService.save(
-                            questionMapper.toEntity(questionDto)),
+                            questionMapper
+                                    .toEntity(questionDto)),
                     HttpStatus.CREATED);
     }
 }

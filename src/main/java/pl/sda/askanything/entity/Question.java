@@ -2,6 +2,7 @@ package pl.sda.askanything.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@SuperBuilder
 public class Question extends AbstractEntity {
 
     @OneToOne

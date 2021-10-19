@@ -1,6 +1,7 @@
 package pl.sda.askanything.entity;
 
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 
 @MappedSuperclass
 @NoArgsConstructor
+@SuperBuilder
 public abstract class AbstractEntity {
 
     @Id

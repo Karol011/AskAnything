@@ -12,5 +12,3 @@ spring:
     user:
       name: user
       password: user
-  profiles:
-    active: dev
