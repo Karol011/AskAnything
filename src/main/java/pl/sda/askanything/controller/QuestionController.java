@@ -12,6 +12,9 @@ import pl.sda.askanything.entity.Question;
 import pl.sda.askanything.service.QuestionService;
 import pl.sda.askanything.utility.QuestionMapper;
 
+import javax.validation.Valid;
+
+
 @RestController
 @RequestMapping("/questions")
 @AllArgsConstructor
@@ -21,8 +24,12 @@ public class QuestionController {
     private final QuestionMapper questionMapper;
 
     @PostMapping()
-    public ResponseEntity<Question> addQuestion(@RequestBody QuestionDto questionDto) {
+    public ResponseEntity<Question> addQuestion(@Valid @RequestBody QuestionDto questionDto) {
 
-            return new ResponseEntity<>(questionService.save(questionMapper.toEntity(questionDto)), HttpStatus.CREATED);
+            return new ResponseEntity<>(
+                    questionService.save(
+                            questionMapper
+                                    .toEntity(questionDto)),
+                    HttpStatus.CREATED);
     }
 }

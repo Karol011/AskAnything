@@ -42,6 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .and()
                 .csrf().disable();
+        //this line enables connection through localhost to h2-console
+        http.headers().frameOptions().disable();
     }
 
     @Override

@@ -28,8 +28,7 @@ class QuestionServiceTest {
     @InjectMocks
     private QuestionService questionService;
     Question nullQuestion = null;
-    Question emptyQuestion = new Question(1L,
-            new User(),
+    Question emptyQuestion = new Question(new User(),
             List.of(new Response()),
             "");
 
@@ -37,9 +36,7 @@ class QuestionServiceTest {
     @BeforeEach
     void setUp() {
         Question question = new Question(
-                1L,
-                new User(1L,
-                        "Karol",
+                new User("Karol",
                         "Karolskyy",
                         "superSecretPassword",
                         null),
@@ -54,6 +51,7 @@ class QuestionServiceTest {
             questionService.save(nullQuestion);
         });
     }
+
     @Test
     public void shouldThrowWhenQuestionIsEmpty() {
         Assertions.assertThrows(EmptyQuestionException.class, () -> {
